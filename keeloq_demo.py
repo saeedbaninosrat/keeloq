@@ -79,7 +79,7 @@ def main():
     if supplied:
         print('Supplied information: key bits 0..15 (16 correct bits); 48 bits remain unknown.', flush=True)
     if args.rounds < 64:
-        print(f'Key bits {args.rounds}..63 are unused and cannot be recovered from these observations.', flush=True)
+        print(f'Key bits {args.rounds}..63 are unused; observations cannot determine them unless supplied.', flush=True)
     status, elapsed, candidate, unique, unique_elapsed, reason = recover(pairs, args.rounds, supplied, args.timeout)
     print(f'Solver: {status.upper()} ({elapsed:.3f} s)')
     if candidate is None:
